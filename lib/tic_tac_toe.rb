@@ -41,10 +41,11 @@ def turn(board)
   end
 end
 
-def play(board)
+def turn_count(board)
   counter = 0
-    while counter < 9
-      turn(board)
+  board.each do |cell|
+    if cell == "X" || cell == "O"
       counter +=1
     end
+    return counter 
 end
