@@ -47,5 +47,13 @@ def turn_count(board)
     if cell == "X" || cell == "O"
       counter +=1
     end
-    return counter 
+    return counter
 end
+
+def current_player(board)
+  if turn_count(board) %2 == 0
+    current_play = "X"
+  elsif turn_count(board) % 2 == 1
+    current_play = "O"
+  end
+end 
