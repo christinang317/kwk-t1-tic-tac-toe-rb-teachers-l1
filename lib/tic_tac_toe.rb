@@ -62,4 +62,47 @@ def current_player(board)
     return "O"
 end
 
+
+def won?(board)
+  WIN_COMBINATIONS.each do |win_combination|
+    win_index_1 = win_combination[0]
+    win_index_2 = win_combination[1]
+    win_index_3 = win_combination[2]
+
+    position_1 = board[win_index_1]
+    position_2 = board[win_index_2]
+    position_3 = board[win_index_3]
+
+      if position_taken?(board,win_index_1) && position_1 == position_2 && position_2 == position_3
+        return win_combination
+      end
+  end
+    false
+end
+
+def full?(board)
+  board.each do |cell|
+    if cell == "" || cell == " "
+       return false
+    end
+  end
+  true
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  if won?(board)
+    return board[won?(board)[0]]
+  end
+nil
+end
+
+
 end
