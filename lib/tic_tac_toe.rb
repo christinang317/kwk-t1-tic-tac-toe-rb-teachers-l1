@@ -56,6 +56,6 @@ def current_player(board)
   elsif turn_count(board) % 2 == 1
     current_play = "O"
   end
-end 
+end
 
 end
